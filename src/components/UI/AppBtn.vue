@@ -9,7 +9,8 @@ export default {
   name: 'AppBtn',
   data() {
     return {}
-  }
+  },
+  methods: {}
 }
 </script>
 
