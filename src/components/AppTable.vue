@@ -64,7 +64,17 @@ export default {
         : (this.sortParam = 'reversAlphabet')
     },
 
+    sortObj(obj, sortFunction) {
+      for (const iterator of obj) {
+        if ('subordinates' in iterator) {
+          this.sortObj(iterator.subordinates, sortFunction)
+          iterator.subordinates = [...iterator.subordinates].sort(sortFunction)
+        }
+      }
+    },
+
     foo(sortFunction) {
+      this.sortObj(this.persons, sortFunction)
       return [...this.persons].sort(sortFunction)
     }
   },
@@ -84,9 +94,6 @@ export default {
 </script>
 
 <style scoped>
-.app-table {
-}
-
 .app-table__row {
   display: grid;
   grid-template-columns: auto 200px;
