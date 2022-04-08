@@ -25,9 +25,6 @@ export default {
       type: Object,
       required: true
     }
-  },
-  data() {
-    return {}
   }
 }
 </script>
@@ -36,21 +33,17 @@ export default {
 .table-row {
   display: grid;
   grid-template-columns: auto 200px;
+  box-shadow: 3px 3px rgba(0, 0, 0, 0.4);
 }
 
 .table-row__cell {
   padding: 8px;
-  border: 1px solid black;
-  box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
-  background-color: azure;
-}
-
-.table-row__cell:not(:nth-child(even)) {
-  border-right: none;
+  border: 1px solid grey;
+  background-color: #fff;
 }
 
 details details {
-  padding-left: 4px;
+  padding-left: 8px;
 }
 
 .spoller {
@@ -61,7 +54,7 @@ details details {
   content: '+';
 }
 
-details[open] > summary > .spoller__btn::before {
+details[open] > .table-row > .spoller__btn::before {
   content: '-';
 }
 </style>

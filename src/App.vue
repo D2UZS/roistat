@@ -1,7 +1,7 @@
 <template>
   <div class="app">
     <div class="app__container">
-      <button class="app__btn" @click="showPopup">Добавить</button>
+      <button class="app__btn" @click="showPopup">Добавить сотрудника</button>
       <app-table class="app__table" :persons="persons" />
       <app-popup
         class="app__popup"
@@ -17,14 +17,12 @@
 <script>
 import AppTable from '@/components/AppTable'
 import AppPopup from '@/components/AppPopup'
-import AppBtn from '@/components/UI/AppBtn'
 
 export default {
   name: 'App',
 
   components: {
     AppTable,
-    AppBtn,
     AppPopup
   },
 
@@ -37,20 +35,20 @@ export default {
           name: 'Марина',
           phoneNumber: '+7 941 123 21 42',
           id: '1',
-          chiefId: null,
+          bossId: null,
           subordinates: [
             {
               name: 'Лена',
               phoneNumber: '+7 941 123 21 42',
               id: '3',
-              chiefId: null,
+              bossId: null,
               subordinates: []
             },
             {
               name: 'Катя',
               phoneNumber: '+7 941 123 21 42',
               id: '7',
-              chiefId: null,
+              bossId: null,
               subordinates: []
             }
           ]
@@ -59,7 +57,7 @@ export default {
           name: 'Петр',
           phoneNumber: '+7 941 123 21 42',
           id: '2',
-          chiefId: null,
+          bossId: null,
           subordinates: []
         }
       ],
@@ -78,10 +76,10 @@ export default {
     },
 
     addPerson(person) {
-      if (person.chiefId) {
-        const chiefPerson = this.findPerson(this.persons, person.chiefId)
+      if (person.bossId) {
+        const boss = this.findBoss(this.persons, person.bossId)
 
-        chiefPerson.subordinates.push(person)
+        boss.subordinates.push(person)
       } else {
         this.persons.push(person)
       }
@@ -89,21 +87,21 @@ export default {
       localStorage.setItem('persons', JSON.stringify(this.persons))
     },
 
-    findPerson(object, id) {
+    findBoss(object, id) {
       for (const iterator of object) {
-        const result = this.foo(iterator, id)
+        const result = this.findBossRecursively(iterator, id)
         if (result) {
           return result
         }
       }
     },
 
-    foo(obj, id) {
+    findBossRecursively(obj, id) {
       if (obj.id === id) {
         return obj
       } else if (obj.subordinates.length) {
         for (const i of obj.subordinates) {
-          const result = this.foo(i, id)
+          const result = this.findBossRecursively(i, id)
           if (result) {
             return result
           }
@@ -142,6 +140,8 @@ export default {
 
 body {
   margin: 0;
+  font-family: 'montserrat', sans-serif;
+  background-color: rgba(0, 0, 0, 0.1);
 }
 
 .app {
@@ -149,8 +149,6 @@ body {
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
 }
 
 .app__container {
@@ -162,10 +160,26 @@ body {
 }
 
 .app__btn {
-  align-self: flex-end;
+  appearance: none;
+  outline: none;
+  border: none;
+  background: none;
+  cursor: pointer;
 
-  max-width: max-content;
-  padding: 4px 8px;
-  border-radius: 8px;
+  display: inline-block;
+  padding: 8px 16px;
+  background-image: linear-gradient(to right, #cc2e5d, #ff5858);
+  border-radius: 4px;
+
+  color: #fff;
+  font-size: 16px;
+  font-weight: 500;
+
+  box-shadow: 3px 3px rgba(0, 0, 0, 0.4);
+  transition: 0.2s ease-out;
+}
+
+.app__btn:hover {
+  box-shadow: 6px 6px rgba(0, 0, 0, 0.6);
 }
 </style>

@@ -1,7 +1,7 @@
 <template>
   <div class="app-popup" @click="hidePopup">
     <div class="app-popup__inner" @click.stop>
-      <span class="app-popup__title">Добавление пользователя</span>
+      <span class="app-popup__title">Информация о сотруднике</span>
       <button class="app-popup__close-btn" @click="hidePopup">&times;</button>
       <form class="app-popup__form" @submit.prevent="submitForm">
         <label class="app-popup__label">
@@ -25,7 +25,7 @@
         </label>
         <label class="app-popup__label" v-if="allPeople.length">
           <span class="app-popup__label-text">Начальник</span>
-          <select class="app-popup__label-select" v-model="person.chiefId">
+          <select class="app-popup__label-select" v-model="person.bossId">
             <option value=""></option>
             <option
               v-for="person of allPeople"
@@ -57,7 +57,7 @@ export default {
         name: '',
         phoneNumber: '+7(',
         id: null,
-        chiefId: '',
+        bossId: '',
         subordinates: []
       }
     }
@@ -126,40 +126,64 @@ export default {
   justify-content: center;
   padding: 16px;
 
-  background: rgba(0, 0, 0, 0.4);
+  background: rgba(0, 0, 0, 0.6);
 }
 
 .app-popup__inner {
   position: relative;
 
-  flex-basis: 300px;
-  padding: 16px;
+  flex-basis: 360px;
+  padding: 32px;
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 24px;
 
   background-color: #fff;
-  border: 1px solid black;
+  border-radius: 4px;
+}
+
+.app-popup__title {
+  font-weight: 700;
+  font-size: 18px;
+  color: gray;
 }
 
 .app-popup__close-btn {
   position: absolute;
-  top: 12px;
+  top: 16px;
   right: 16px;
 
-  font-size: 16px;
-  line-height: 0;
-  width: 24px;
-  height: 24px;
+  appearance: none;
+  outline: none;
+  border: none;
+  background: none;
+  cursor: pointer;
+
+  width: 32px;
+  height: 32px;
   display: flex;
   align-items: center;
   justify-content: center;
+
+  background-image: linear-gradient(to right, #cc2e5d, #ff5858);
+  border-radius: 4px;
+
+  color: #fff;
+  font-size: 24px;
+  line-height: 0;
+
+  transition: 0.2s ease-out;
+}
+
+.app-popup__close-btn:active {
+  opacity: 0.7;
 }
 
 .app-popup__form {
   display: flex;
   flex-direction: column;
   gap: 8px;
+  color: gray;
 }
 
 .app-popup__label {
@@ -173,11 +197,18 @@ export default {
 .app-popup__label-input,
 .app-popup__label-select {
   width: 160px;
-  height: 22px;
-  border: 1px solid black;
+  /* height: 38px; */
+  padding: 8px;
+  border: 1px solid grey;
+  border-radius: 4px;
+}
+
+.app-popup__label-input:focus,
+.app-popup__label-select:focus {
+  outline-color: darkgray;
 }
 
 .app-popup__btn {
-  margin-top: 8px;
+  margin-top: 16px;
 }
 </style>
