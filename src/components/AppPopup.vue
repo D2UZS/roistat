@@ -16,12 +16,15 @@
         </label>
         <label class="app-popup__label">
           <span class="app-popup__label-text">Телефон</span>
-          <input
+          <the-mask
             class="app-popup__label-input"
-            type="tel"
+            mask="+7 ### ### ## ##"
             v-model="person.phoneNumber"
-            placeholder="+7(___)___-__-__"
-          />
+            type="tel"
+            masked="false"
+            placeholder="+7 ___ ___ __ __"
+            required
+          ></the-mask>
         </label>
         <label class="app-popup__label" v-if="allPeople.length">
           <span class="app-popup__label-text">Начальник</span>
@@ -43,12 +46,14 @@
 
 <script>
 import AppBtn from '@/components/UI/AppBtn'
+import { TheMask } from 'vue-the-mask'
 
 export default {
   name: 'AppPopup',
 
   components: {
-    AppBtn
+    AppBtn,
+    TheMask
   },
 
   data() {
