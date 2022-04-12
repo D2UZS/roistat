@@ -10,7 +10,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .app-btn {
   appearance: none;
   outline: none;
@@ -28,9 +28,9 @@ export default {
   font-weight: 500;
 
   transition: 0.2s ease-out;
-}
 
-.app-btn:active {
-  opacity: 0.7;
+  &:active {
+    opacity: 0.7;
+  }
 }
 </style>

@@ -29,29 +29,33 @@ export default {
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .table-row {
   display: grid;
   grid-template-columns: auto 200px;
   box-shadow: 3px 3px rgba(0, 0, 0, 0.4);
+
+  &__cell {
+    padding: 8px;
+    border: 1px solid grey;
+    background-color: #fff;
+  }
 }
 
-.table-row__cell {
-  padding: 8px;
-  border: 1px solid grey;
-  background-color: #fff;
-}
-
-details details {
-  padding-left: 8px;
+details {
+  details {
+    padding-left: 8px;
+  }
 }
 
 .spoller {
   cursor: pointer;
-}
 
-.spoller__btn::before {
-  content: '+';
+  &__btn {
+    &::before {
+      content: '+';
+    }
+  }
 }
 
 details[open] > .table-row > .spoller__btn::before {

@@ -117,7 +117,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .app-popup {
   position: fixed;
   top: 0;
@@ -132,88 +132,86 @@ export default {
   padding: 16px;
 
   background: rgba(0, 0, 0, 0.6);
-}
 
-.app-popup__inner {
-  position: relative;
+  &__inner {
+    position: relative;
 
-  flex-basis: 360px;
-  padding: 32px;
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
+    flex-basis: 360px;
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
 
-  background-color: #fff;
-  border-radius: 4px;
-}
+    background-color: #fff;
+    border-radius: 4px;
+  }
 
-.app-popup__title {
-  font-weight: 700;
-  font-size: 18px;
-  color: gray;
-}
+  &__title {
+    font-weight: 700;
+    font-size: 18px;
+    color: gray;
+  }
 
-.app-popup__close-btn {
-  position: absolute;
-  top: 16px;
-  right: 16px;
+  &__close-btn {
+    position: absolute;
+    top: 16px;
+    right: 16px;
 
-  appearance: none;
-  outline: none;
-  border: none;
-  background: none;
-  cursor: pointer;
+    appearance: none;
+    outline: none;
+    border: none;
+    background: none;
+    cursor: pointer;
 
-  width: 32px;
-  height: 32px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-  background-image: linear-gradient(to right, #cc2e5d, #ff5858);
-  border-radius: 4px;
+    background-image: linear-gradient(to right, #cc2e5d, #ff5858);
+    border-radius: 4px;
 
-  color: #fff;
-  font-size: 24px;
-  line-height: 0;
+    color: #fff;
+    font-size: 24px;
+    line-height: 0;
 
-  transition: 0.2s ease-out;
-}
+    transition: 0.2s ease-out;
 
-.app-popup__close-btn:active {
-  opacity: 0.7;
-}
+    &:active {
+      opacity: 0.7;
+    }
+  }
 
-.app-popup__form {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  color: gray;
-}
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    color: gray;
+  }
 
-.app-popup__label {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  justify-content: space-between;
-  align-items: center;
-}
+  &__label {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: space-between;
+    align-items: center;
+  }
 
-.app-popup__label-input,
-.app-popup__label-select {
-  width: 160px;
-  /* height: 38px; */
-  padding: 8px;
-  border: 1px solid grey;
-  border-radius: 4px;
-}
+  &__label-input,
+  &__label-select {
+    width: 160px;
+    padding: 8px;
+    border: 1px solid grey;
+    border-radius: 4px;
 
-.app-popup__label-input:focus,
-.app-popup__label-select:focus {
-  outline-color: darkgray;
-}
+    &:focus {
+      outline-color: darkgray;
+    }
+  }
 
-.app-popup__btn {
-  margin-top: 16px;
+  &__btn {
+    margin-top: 16px;
+  }
 }
 </style>

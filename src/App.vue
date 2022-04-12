@@ -131,55 +131,42 @@ export default {
 }
 </script>
 
-<style>
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-
-body {
-  margin: 0;
-  font-family: 'montserrat', sans-serif;
-  background-color: rgba(0, 0, 0, 0.1);
-}
-
+<style lang="scss">
 .app {
   display: flex;
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-}
 
-.app__container {
-  width: 100%;
-  max-width: 400px;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
+  &__container {
+    width: 100%;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  &__btn {
+    appearance: none;
+    outline: none;
+    border: none;
+    background: none;
+    cursor: pointer;
 
-.app__btn {
-  appearance: none;
-  outline: none;
-  border: none;
-  background: none;
-  cursor: pointer;
+    display: inline-block;
+    padding: 8px 16px;
+    background-image: linear-gradient(to right, #cc2e5d, #ff5858);
+    border-radius: 4px;
 
-  display: inline-block;
-  padding: 8px 16px;
-  background-image: linear-gradient(to right, #cc2e5d, #ff5858);
-  border-radius: 4px;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 500;
 
-  color: #fff;
-  font-size: 16px;
-  font-weight: 500;
+    box-shadow: 3px 3px rgba(0, 0, 0, 0.4);
+    transition: 0.2s ease-out;
 
-  box-shadow: 3px 3px rgba(0, 0, 0, 0.4);
-  transition: 0.2s ease-out;
-}
-
-.app__btn:hover {
-  box-shadow: 6px 6px rgba(0, 0, 0, 0.6);
+    &:hover {
+      box-shadow: 4px 4px rgba(0, 0, 0, 0.6);
+    }
+  }
 }
 </style>

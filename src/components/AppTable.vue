@@ -77,17 +77,21 @@ export default {
 }
 </script>
 
-<style scoped>
-.app-table__header {
-  display: grid;
-  grid-template-columns: auto 200px;
+<style scoped lang="scss">
+.app-table {
+  &__header {
+    display: grid;
+    grid-template-columns: auto 200px;
+  }
 }
 
-.table-header__cell {
-  padding: 12px 8px;
-  border: 1px solid grey;
-  box-shadow: 3px 3px rgba(0, 0, 0, 0.4);
-  background-color: #fff;
-  font-weight: 700;
+.table-header {
+  &__cell {
+    padding: 12px 8px;
+    border: 1px solid grey;
+    box-shadow: 3px 3px rgba(0, 0, 0, 0.4);
+    background-color: #fff;
+    font-weight: 700;
+  }
 }
 </style>

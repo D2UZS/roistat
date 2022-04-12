@@ -3,6 +3,7 @@
 import Vue from 'vue'
 import App from './App'
 import VueTheMask from 'vue-the-mask'
+import '@/assets/styles/style.scss'
 
 Vue.config.productionTip = false
 
